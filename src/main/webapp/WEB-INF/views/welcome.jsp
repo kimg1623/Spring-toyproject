@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
     <title>Welcome</title>
 </head>
 <body>
