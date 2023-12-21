@@ -258,5 +258,5 @@ buildNumber.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,intellij+iml,intellij,maven
 
-# Self추가
-.xml
+# Add by jiwon
+.idea
