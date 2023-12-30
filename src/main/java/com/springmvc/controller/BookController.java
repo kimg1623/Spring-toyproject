@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -25,10 +26,12 @@ public class BookController {
     }
 
     @RequestMapping("/all")
-    public String requestAllBooks(Model model){ // 웹 요청 처리할 메서드
+    public ModelAndView requestAllBooks(){ // 웹 요청 처리할 메서드
+        ModelAndView modelAndView = new ModelAndView();
         List<Book> list = bookService.getAlliBookList();
-        model.addAttribute("bookList", list); // model 객체에 view에 전달할 정보 담는다.
-        return "books"; // view
+        modelAndView.addObject("bookList", list); // modelAndView 객체에 view에 전달할 정보 담는다.
+        modelAndView.setViewName("books"); // modelAndView 객체에 전달한 뷰 이름을 설정한다.
+        return modelAndView; // modelAndView 객체 자체를 반환한다.
     }
 
 
