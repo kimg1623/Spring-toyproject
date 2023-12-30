@@ -5,6 +5,7 @@ import com.springmvc.service.impl.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,6 +33,13 @@ public class BookController {
         modelAndView.addObject("bookList", list); // modelAndView 객체에 view에 전달할 정보 담는다.
         modelAndView.setViewName("books"); // modelAndView 객체에 전달한 뷰 이름을 설정한다.
         return modelAndView; // modelAndView 객체 자체를 반환한다.
+    }
+
+    @RequestMapping("/{category}")
+    public String requestBooksByCategory(@PathVariable("category") String bookCategory, Model model){
+        List<Book> booksByCategory = bookService.getBookListByCategory(bookCategory);
+        model.addAttribute("bookList", booksByCategory);
+        return "books";
     }
 
 
