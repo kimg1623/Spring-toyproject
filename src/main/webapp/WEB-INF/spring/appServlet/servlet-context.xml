@@ -20,8 +20,12 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
-	<context:component-scan base-package="com.springmvc.controller" />
+
+	<!--
+		컨트롤러 및 의존관계에 있는 자바 클래스 를 빈 객체로 자동 등록
+		-> component-scan을 사용하지 않으면 servlet-context에 <bean>객체로 하나씩 등록해야 함
+	-->
+	<context:component-scan base-package="com.springmvc.*" />
 	
 	
 	
