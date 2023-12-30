@@ -57,6 +57,11 @@ public class BookController {
         return "book";
     }
 
+    @GetMapping("/add")
+    public String requestAddBookFrom(Book book){
+        return "addBook";
+    }
+
 
 
 }
