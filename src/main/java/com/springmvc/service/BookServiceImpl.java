@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Service // 프레젠테이션 계층(controller)과 퍼시스턴트 계층(repository)을 연결
 public class BookServiceImpl implements BookService {
@@ -21,7 +23,13 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getBookListByCategory(String bookCategory) {
-        List<Book> booksByCategory = bookRepository.getBookListByCateory(bookCategory);
+        List<Book> booksByCategory = bookRepository.getBookListByCategory(bookCategory);
         return booksByCategory;
+    }
+
+    @Override
+    public Set<Book> getBookListByFilter(Map<String, List<String>> filter) {
+        Set<Book> booksByFilter = bookRepository.getBookListByFilter(filter);
+        return booksByFilter;
     }
 }
