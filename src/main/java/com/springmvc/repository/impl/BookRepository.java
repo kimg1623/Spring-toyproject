@@ -15,4 +15,6 @@ public interface BookRepository {
 
     Book getBookById(String bookId);
 
+    void setNewBook(Book book);
+
 }
