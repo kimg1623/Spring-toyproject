@@ -10,7 +10,7 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="./home">Home</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/home">Home</a>
             </div>
         </div>
     </nav>
@@ -30,6 +30,7 @@
                     <br>${book.publisher} | ${book.releaseDate}
                     <p align="left">${fn:substring(book.description, 0, 100)}...</p> <!-- JSTL function 태그로 문자열 자르기 (문자열,시작index, 끝index앞) -->
                     <p>${book.unitPrice}원</p>
+                    <p><a href="<c:url value="/books/book?id=${book.bookId}"/>" class="btn btn-secondary" role="button">상세정보 &raquo;</a> </p>
                 </div>
             </c:forEach>
         </div>
