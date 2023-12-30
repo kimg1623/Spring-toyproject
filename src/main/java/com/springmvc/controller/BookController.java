@@ -58,7 +58,7 @@ public class BookController {
     }
 
     @GetMapping("/add")
-    public String requestAddBookFrom(Book book){
+    public String requestAddBookForm(Book book){
         return "addBook";
     }
 
