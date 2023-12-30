@@ -50,6 +50,13 @@ public class BookController {
         return "books";
     }
 
+    @GetMapping("/book")
+    public String requestBookById(@RequestParam("id") String bookId, Model model){
+        Book bookById = bookService.getBookById(bookId);
+        model.addAttribute("book",bookById);
+        return "book";
+    }
+
 
 
 }

@@ -3,6 +3,7 @@ package com.springmvc.repository;
 import com.springmvc.domain.Book;
 import com.springmvc.repository.impl.BookRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.*;
 
@@ -96,5 +97,19 @@ public class BookRepositoryImpl implements BookRepository {
 
         booksByCategory.retainAll(booksByPublisher);
         return booksByCategory;
+    }
+
+    @Override
+    public Book getBookById(String bookId) {
+        Book bookInfo = null;
+        for(int i=0;i<listOfBooks.size();i++){
+            Book book = listOfBooks.get(i);
+            if(book != null && book.getBookId() != null && book.getBookId().equals(bookId)) {
+                bookInfo = book;
+                break;
+            }
+        }
+        if(bookInfo == null) throw new IllegalArgumentException("도서 ID가 "+bookId+"인 해당 도서를 찾을 수 없습니다.");
+        return bookInfo;
     }
 }
