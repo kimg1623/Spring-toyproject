@@ -68,7 +68,7 @@ public class BookController {
         return "redirect:/books"; // PRG 패턴 적용
     }
 
-    @ModelAttribute
+    @ModelAttribute // 메서드 수준의 @ModelAttribute 선언
     public void addAttributes(Model model){
         model.addAttribute("addTitle", "신규 도서 등록");
     }
