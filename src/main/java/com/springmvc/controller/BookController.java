@@ -5,6 +5,7 @@ import com.springmvc.service.impl.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -73,6 +74,10 @@ public class BookController {
         model.addAttribute("addTitle", "신규 도서 등록");
     }
 
+    @InitBinder // 폼 데이터 중에서 필요한 필드만 바인딩 하도록 지정
+    public void initBinder(WebDataBinder binder){
+        binder.setAllowedFields("bookId", "name", "unitPrice", "author", "description", "publisher", "category", "unitsInStock", "totalPages", "releaseDate", "condition");
+    }
 
 
 
