@@ -22,6 +22,11 @@
 	</div>
 
 	<div class="container">
+		<div class="float-right">
+			<form:form action="${pageContext.request.contextPath}/logout" method="POST">
+				<input type="submit" class="btn btn-sm btn-success" value="logout"/>
+			</form:form>
+		</div>
 		<form:form modelAttribute = "NewBook" class="form-horizontal" >
 			<fieldset>
 				<legend>${addTitle}</legend> <!-- 모델 속성의 이름 addTitle 출력 -->
